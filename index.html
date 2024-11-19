@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vermin Experience</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      .animate-marquee {
+        animation: marquee 30s linear infinite;
+      }
+      #sketch-container canvas {
+        width: 100% !important;
+        height: 100% !important;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-white font-['Inter']">
+    <div class="flex flex-col md:flex-row min-h-[calc(100vh-32px)]">
+      <!-- p5.js Sketch Section -->
+      <div
+        id="sketch-container"
+        class="h-64 md:h-auto md:w-1/2 bg-gradient-to-br from-gray-300 to-gray-100 order-last md:order-first"
+      ></div>
+
+      <!-- Content Section -->
+      <main class="flex-1 flex flex-col">
+        <div class="px-1 pb-1 max-w-[800px]">
+          <!-- Marquee Banner -->
+          <div
+            class="border-b border-gray-200 overflow-hidden whitespace-nowrap py-2"
+          >
+            <div class="flex">
+              <div class="animate-marquee inline-block text-xs tracking-wide">
+                • :3 • • Sammi Doing Her Best • • • DRA MEG INN I GRANSKAUEN • •
+                • Only Mild Radation Poising • • Who Am I?? • • Nothing Can Go
+                Wrong • • What am I doing? • • • DRA MEG INN I GRANSKAUEN • • •
+                Currently Drowning • • Who Are You?? •
+              </div>
+              <div class="animate-marquee inline-block text-xs tracking-wide">
+                • :3 • • Sammi Doing Her Best • • • DRA MEG INN I GRANSKAUEN • •
+                • Only Mild Radation Poising • • Who Am I?? • • Nothing Can Go
+                Wrong • • What am I doing? • • • DRA MEG INN I GRANSKAUEN • • •
+                Currently Drowning • • Who Are You?? •
+              </div>
+            </div>
+          </div>
+          <!-- Header Section with Email/Instagram -->
+          <div class="my-8 mb-12">
+            <div class="flex justify-center gap-8 text-sm">
+              <a
+                href="mailto:DataVermin@gmail.com"
+                class="flex items-center hover:text-gray-400"
+              >
+                Email
+                <span class="ml-2 [&>svg]:h-5 [&>svg]:w-5">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="size-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M2.25 13.5h3.86a2.25 2.25 0 0 1 2.012 1.244l.256.512a2.25 2.25 0 0 0 2.013 1.244h3.218a2.25 2.25 0 0 0 2.013-1.244l.256-.512a2.25 2.25 0 0 1 2.013-1.244h3.859m-19.5.338V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18v-4.162c0-.224-.034-.447-.1-.661L19.24 5.338a2.25 2.25 0 0 0-2.15-1.588H6.911a2.25 2.25 0 0 0-2.15 1.588L2.35 13.177a2.25 2.25 0 0 0-.1.661Z"
+                    />
+                  </svg>
+                </span>
+              </a>
+              <a
+                href="https://github.com/Data-Vermin"
+                target="_blank"
+                class="flex items-center hover:text-gray-400"
+              >
+                Github
+                <!-- Github -->
+                <span class="ml-2 [&>svg]:h-5 [&>svg]:w-5">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor"
+                    viewBox="0 0 496 512"
+                  >
+                    <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc. -->
+                    <path
+                      d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+                    />
+                  </svg>
+                </span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Content Grid -->
+          <div class="grid grid-cols-12 gap-x-8">
+            <!-- Left Column - Profile Info -->
+            <div class="col-span-12 md:col-span-4 space-y-6 mb-12">
+              <div class="mx-auto border border-gray-200">
+                <img
+                  src="img\Samantha.jpg"
+                  alt="Portrait of a person with red curly hair wearing a black bandana, round glasses, and a green jacket"
+                />
+              </div>
+              <div class="border-t border-b py-6 border-gray-200">
+                <h1 class="text-2xl font-bold">Eris Thorn</h1>
+                <h2 class="text-2xl font-bold">Samantha Foxx</h2>
+                <h2 class="text-2xl font-bold">Data Vermin</h2>
+                <div class="italic text-gray-600">Creative Coder</div>
+              </div>
+            </div>
+
+            <!-- Right Column - Text Content -->
+            <div class="col-span-12 md:col-span-8 space-y-6 mb-12">
+              <p>
+                I'm Eris Thorn, my aliases are Samantha Foxx, and Data Vermin.
+                As a polymath and ADHD artist based in Portland Oregon, my
+                creative journey is a tapestry woven from diverse threads of
+                storytelling, world-building, and interactive experiences. My
+                work spans multiple mediums, including digital art, coding,
+                music, and game design, allowing me to explore the
+                interconnectedness of these forms in innovative ways.
+              </p>
+              <p>
+                I am passionate about conceptual art and product design, where
+                whimsy meets functionality. My hands-on approach, using
+                techniques like laser cutting and object printing, allows me to
+                turn ideas into tangible forms, exploring how art shapes our
+                understanding and fosters connection.
+              </p>
+              <p>
+                Ultimately, my work reflects a commitment to discovery,
+                embracing the chaos of creativity while celebrating the joy of
+                building new worlds. Through each project, I aim to invite
+                others into a shared narrative, creating spaces where
+                imagination thrives.
+              </p>
+            </div>
+          </div>
+          <div class="px-4 py-12 border-t border-gray-200">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+              <!-- Gallery Item 1 -->
+              <div
+                class="rounded-lg overflow-hidden shadow-lg transition-transform duration-200 hover:scale-105 bg-white"
+              >
+                <a href="projects.html" class="block relative">
+                  <div class="relative">
+                    <img
+                      src="img\micro.jpg"
+                      alt="Projects"
+                      class="w-full h-48 object-cover"
+                    />
+                    <div
+                      class="absolute bottom-0 left-0 right-0 p-2 bg-green-900"
+                    >
+                      <h3 class="text-sm font-medium text-slate-50 text-center">
+                        Projects
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Gallery Item 2 -->
+              <div
+                class="rounded-lg overflow-hidden shadow-lg transition-transform duration-200 hover:scale-105 bg-white"
+              >
+                <a href="max.html" class="block relative">
+                  <div class="relative">
+                    <img
+                      src="img\max.png"
+                      alt="Max"
+                      class="w-full h-48 object-cover"
+                    />
+                    <div
+                      class="absolute bottom-0 left-0 right-0 p-2 bg-green-900"
+                    >
+                      <h3 class="text-sm font-medium text-slate-50 text-center">
+                        Max
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Gallery Item 3 -->
+              <div
+                class="rounded-lg overflow-hidden shadow-lg transition-transform duration-200 hover:scale-105 bg-white"
+              >
+                <a href="CreativeCoding.html" class="block relative">
+                  <div class="relative">
+                    <img
+                      src="img\CRT.jpg"
+                      alt="CRT with Glitch Effect"
+                      class="w-full h-48 object-cover"
+                    />
+                    <div
+                      class="absolute bottom-0 left-0 right-0 p-2 bg-green-900"
+                    >
+                      <h3 class="text-sm font-medium text-slate-50 text-center">
+                        Creative Coding
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Gallery Item 4 -->
+              <div
+                class="rounded-lg overflow-hidden shadow-lg transition-transform duration-200 hover:scale-105 bg-white"
+              >
+                <a href="DigitalArt.html" class="block relative">
+                  <div class="relative">
+                    <img
+                      src="img\Digital art\album art\Cult.mix.jpg"
+                      alt="Digital Art"
+                      class="w-full h-48 object-cover"
+                    />
+                    <div
+                      class="absolute bottom-0 left-0 right-0 p-2 bg-green-900"
+                    >
+                      <h3 class="text-sm font-medium text-slate-50 text-center">
+                        Digital Art
+                      </h3>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      let starsX = [];
+
+      let starsY = [];
+
+      let starblink = [];
+
+      function setup() {
+        let container = document.getElementById("sketch-container");
+        let canvas = createCanvas(
+          container.offsetWidth,
+          container.offsetHeight,
+          WEBGL
+        );
+        // Move the canvas inside the container
+        canvas.parent("sketch-container");
+
+        for (let i = 0; i < 150; i++) {
+          starsX[i] = random(width);
+          starsY[i] = random(height);
+          starblink[i] = Math.floor(random(0, 10));
+        }
+      }
+
+      function draw() {
+        background(42, 1, 52);
+
+        if (frameCount % 15 == 0) {
+          for (let i = 0; i < 150; i++) {
+            starblink[i] = Math.floor(random(0, 10));
+          }
+        }
+        drawStars();
+      }
+
+      function drawStars() {
+        //Drawing The Stars And The If Statent For The Blinking
+        push();
+        translate(-width / 2, -height / 2);
+        for (let i = 0; i < 150; i++) {
+          if (starblink[i] == 1) {
+            fill(42, 1, 52);
+          } else {
+            fill(255, 255, 153);
+          }
+          noStroke();
+          ellipse(starsX[i], starsY[i], 7, 7);
+        }
+        pop();
+      }
+
+      // Handle window resizing
+      function windowResized() {
+        let container = document.getElementById("sketch-container");
+        resizeCanvas(container.offsetWidth, container.offsetHeight);
+
+        // Ensure circles stay within new bounds
+        // circles.forEach((circle) => {
+        //   circle.x = constrain(circle.x, 0, width);
+        //   circle.y = constrain(circle.y, 0, height);
+        // });
+      }
+    </script>
+  </body>
+</html>
