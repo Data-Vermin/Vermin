@@ -33,12 +33,16 @@
       <!-- p5.js Sketch Section -->
       <div
         id="sketch-container"
-        class="h-64 md:h-auto md:w-1/2 bg-gradient-to-br from-gray-300 to-gray-100 order-last md:order-first"
+        class="h-64 md:h-auto md:w-1/4 md:order-first"
+      ></div>
+      <div
+        id="sketch-container2"
+        class="h-64 md:h-auto md:w-1/4 md:order-last"
       ></div>
 
       <!-- Content Section -->
       <main class="flex-1 flex flex-col">
-        <div class="px-1 pb-1 max-w-[800px]">
+        <div class="px-4 pb-4 max-w-[1000px]">
           <!-- Marquee Banner -->
           <div
             class="border-b border-gray-200 overflow-hidden whitespace-nowrap py-2"
@@ -247,67 +251,65 @@
     </div>
 
     <script>
-      let starsX = [];
+      let sketch = function (p, divId) {
+        let starsX = [];
 
-      let starsY = [];
+        let starsY = [];
 
-      let starblink = [];
+        let starblink = [];
 
-      function setup() {
-        let container = document.getElementById("sketch-container");
-        let canvas = createCanvas(
-          container.offsetWidth,
-          container.offsetHeight,
-          WEBGL
-        );
-        // Move the canvas inside the container
-        canvas.parent("sketch-container");
+        p.setup = function () {
+          let container = document.getElementById(divId);
+          let canvas = p.createCanvas(
+            container.offsetWidth,
+            container.offsetHeight,
+            p.WEBGL
+          );
+          // Move the canvas inside the container
+          canvas.parent(divId);
 
-        for (let i = 0; i < 150; i++) {
-          starsX[i] = random(width);
-          starsY[i] = random(height);
-          starblink[i] = Math.floor(random(0, 10));
-        }
-      }
-
-      function draw() {
-        background(42, 1, 52);
-
-        if (frameCount % 15 == 0) {
           for (let i = 0; i < 150; i++) {
-            starblink[i] = Math.floor(random(0, 10));
+            starsX[i] = p.random(p.width);
+            starsY[i] = p.random(p.height);
+            starblink[i] = Math.floor(p.random(0, 10));
           }
-        }
-        drawStars();
-      }
+        };
 
-      function drawStars() {
-        //Drawing The Stars And The If Statent For The Blinking
-        push();
-        translate(-width / 2, -height / 2);
-        for (let i = 0; i < 150; i++) {
-          if (starblink[i] == 1) {
-            fill(42, 1, 52);
-          } else {
-            fill(255, 255, 153);
+        p.draw = function () {
+          p.background(42, 1, 52);
+
+          if (p.frameCount % 15 == 0) {
+            for (let i = 0; i < 150; i++) {
+              starblink[i] = Math.floor(p.random(0, 10));
+            }
           }
-          noStroke();
-          ellipse(starsX[i], starsY[i], 7, 7);
-        }
-        pop();
-      }
+          p.drawStars();
+        };
+        p.drawStars = function () {
+          //Drawing The Stars And The If Statent For The Blinking
+          p.push();
+          p.translate(-p.width / 2, -p.height / 2);
+          for (let i = 0; i < 150; i++) {
+            if (starblink[i] == 1) {
+              p.fill(42, 1, 52);
+            } else {
+              p.fill(255, 255, 153);
+            }
+            p.noStroke();
+            p.ellipse(starsX[i], starsY[i], 7, 7);
+          }
+          p.pop();
+        };
 
-      // Handle window resizing
-      function windowResized() {
-        let container = document.getElementById("sketch-container");
-        resizeCanvas(container.offsetWidth / 4, container.offsetHeight / 4);
+        p.windowResized = function () {
+          let container = document.getElementById(divId);
+          resizeCanvas(container.offsetWidth, container.offsetHeight);
+        };
+      };
 
-        // Ensure circles stay within new bounds
-        // circles.forEach((circle) => {
-        //   circle.x = constrain(circle.x, 0, width);
-        //   circle.y = constrain(circle.y, 0, height);
-        // });
-      }
+      // Create two instances of the sketch, each in a different div
+      new p5((p) => sketch(p, "sketch-container"), "sketch-container");
+      new p5((p) => sketch(p, "sketch-container2"), "sketch-container2");
     </script>
   </body>
 </html>
