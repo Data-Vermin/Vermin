@@ -300,7 +300,7 @@
       // Handle window resizing
       function windowResized() {
         let container = document.getElementById("sketch-container");
-        resizeCanvas(container.offsetWidth, container.offsetHeight);
+        resizeCanvas(container.offsetWidth / 4, container.offsetHeight / 4);
 
         // Ensure circles stay within new bounds
         // circles.forEach((circle) => {
