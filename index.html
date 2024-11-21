@@ -269,6 +269,7 @@
           canvas.parent(divId);
 
           for (let i = 0; i < 200; i++) {
+          for (let i = 0; i < 150; i++) {
             starsX[i] = p.random(p.width);
             starsY[i] = p.random(p.height);
             starblink[i] = Math.floor(p.random(0, 10));
@@ -290,6 +291,7 @@
           p.push();
           p.translate(-p.width / 2, -p.height / 2);
           for (let i = 0; i < 250; i++) {
+          for (let i = 0; i < 150; i++) {
             if (starblink[i] == 1) {
               p.fill(42, 1, 52);
             } else {
