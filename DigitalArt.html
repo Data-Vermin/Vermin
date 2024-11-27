@@ -3,15 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Digital Art Gallery</title>
+    <!-- Add p5.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
     <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+      #sketch-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.5;
+      }
+      .content {
+        position: relative;
+        z-index: 1;
+        opacity: 100%;
+      }
       .hd1 {
         font-size: 500%;
         font-family: Helvetica;
+        color: #fff;
+        text-shadow: 2px 2px 5px rgba(254, 254, 254, 0.5);
       }
       .hd2 {
         font-size: 400%;
         font-family: Helvetica;
+        color: #fff;
+        text-shadow: 2px 2px 5px rgba(254, 254, 254, 0.5);
       }
       .poster {
         width: 400px;
@@ -31,9 +58,9 @@
       .link {
         font-size: 200%;
         font-family: Helvetica;
-        color: black;
-        border: 2px solid green;
-        padding: 10px 20px;
+        color: #fff;
+        border: 2px solid #0056b3;
+        padding: 5px 10px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
@@ -62,148 +89,286 @@
       }
       .textt {
         font-family: Helvetica;
+        color: #fff;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      }
+      body {
+        background-color: #121212;
+        color: #f5f5f5;
       }
     </style>
   </head>
   <body>
-    <div>
-      <a class="link" href="index.html">Home Page</a>
+    <div id="sketch-container"></div>
+
+    <div class="content">
+      <div>
+        <a class="link" href="index.html">Home Page</a>
+      </div>
+
+      <h1 class="hd1">Digital Art</h1>
+
+      <h2 class="hd2" id="section-poster">Posters</h2>
+      <div class="grid-container">
+        <figure class="figuree">
+          <img
+            class="poster"
+            src="img\Digital art\posters\Ukrain.Poster.png"
+            alt=""
+          />
+          <figcaption>
+            <p class="textt">Ukrain Poster, Made With Adobe Illistrate</p>
+          </figcaption>
+        </figure>
+
+        <div>
+          <img
+            class="poster"
+            src="img\Digital art\posters\Cadscaida.Poster.png"
+            alt=""
+          />
+        </div>
+
+        <div>
+          <img
+            class="poster"
+            src="img\Digital art\posters\Cub.Poster.png"
+            alt=""
+          />
+        </div>
+
+        <div>
+          <img
+            class="poster"
+            src="img\Digital art\posters\BlackOut.Poster.png"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <h2 class="hd2" id="section-logo">Logos</h2>
+      <div class="grid-container">
+        <div>
+          <img
+            class="logo"
+            src="img\Digital art\logo\company.logo.png"
+            alt=""
+          />
+        </div>
+
+        <div>
+          <img class="logo" src="img\Digital art\logo\Norse.logo.jpg" alt="" />
+        </div>
+
+        <div>
+          <img
+            class="logo"
+            src="img\Digital art\logo\cascaida.logo.png"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <h2 class="hd2" id="section-people">People</h2>
+      <div class="grid-container">
+        <div>
+          <img
+            class="poster"
+            src="img\Digital art\people\reble.people.png"
+            alt=""
+          />
+        </div>
+
+        <div>
+          <img
+            class="poster"
+            src="img\Digital art\people\Grave.people.png"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <h2 class="hd2" id="section-flag">Flags</h2>
+      <div class="grid-container">
+        <div>
+          <img
+            class="flag"
+            src="img\Digital art\Alt history\Cascadia.alt.png"
+            alt=""
+          />
+        </div>
+
+        <div>
+          <img
+            class="flag"
+            src="img\Digital art\Alt history\cal.alt.jpg"
+            alt=""
+          />
+        </div>
+
+        <div>
+          <img
+            class="flag"
+            src="img\Digital art\Alt history\america.alt.png"
+            alt=""
+          />
+        </div>
+
+        <div>
+          <img
+            class="flag"
+            src="img\Digital art\Alt history\usa.alt.png"
+            alt=""
+          />
+        </div>
+
+        <div>
+          <img class="flag" src="img\Digital art\flag\rose.flag.png" alt="" />
+        </div>
+
+        <div>
+          <img
+            class="flag"
+            src="img\Digital art\flag\realRose.flag.png"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <h2 class="hd2" id="section-mix">Mix</h2>
+      <div class="grid-container">
+        <div>
+          <img class="logo" src="img\Digital art\ukraine.mix.png" alt="" />
+        </div>
+
+        <div>
+          <img
+            class="logo"
+            src="img\Digital art\album art\Cult.mix.jpg"
+            alt=""
+          />
+        </div>
+
+        <div>
+          <img
+            class="logo"
+            src="img\Digital art\album art\space.mix.jpg"
+            alt=""
+          />
+        </div>
+      </div>
     </div>
 
-    <h1 class="hd1">Digital Art</h1>
+    <script>
+      let x = 0;
+      let y = 0;
+      let mh = 10;
 
-    <h2 class="hd2" id="section-poster">Posters</h2>
-    <div class="grid-container">
-      <figure class="figuree">
-        <img
-          class="poster"
-          src="img\Digital art\posters\Ukrain.Poster.jpg"
-          alt=""
-        />
-        <figcaption>
-          <p class="textt">Ukrain Poster, Made With Adobe Illistrate</p>
-        </figcaption>
-      </figure>
+      let ySpeed = 1;
+      let speed = 0;
+      let rects = [];
+      let rects2 = []; // Array to store rectangle data
 
-      <div>
-        <img
-          class="poster"
-          src="img\Digital art\posters\Cadscaida.Poster.jpg"
-          alt=""
-        />
-      </div>
+      function setup() {
+        let container = document.getElementById("sketch-container");
+        let canvas = createCanvas(windowWidth, windowHeight);
+        // Move the canvas inside the container
+        canvas.parent("sketch-container");
 
-      <div>
-        <img
-          class="poster"
-          src="img\Digital art\posters\Cub.Poster.png"
-          alt=""
-        />
-      </div>
+        fillRectangles();
+        console.log(rects);
 
-      <div>
-        <img
-          class="poster"
-          src="img\Digital art\posters\BlackOut.Poster.png"
-          alt=""
-        />
-      </div>
-    </div>
+        for (let i = 0; i < 150; i++) {
+          speed = Math.floor(random(0, 10));
+        }
+      }
 
-    <h2 class="hd2" id="section-logo">Logos</h2>
-    <div class="grid-container">
-      <div>
-        <img class="logo" src="img\Digital art\logo\company.logo.jpg" alt="" />
-      </div>
+      function draw() {
+        if (frameCount % 30 == 0) {
+          for (let i = 0; i < 150; i++) {
+            speed = Math.floor(random(0, 10));
+          }
+        }
 
-      <div>
-        <img class="logo" src="img\Digital art\logo\Norse.logo.jpg" alt="" />
-      </div>
+        // Draw the rectangles and move them vertically
+        moveRectangles();
+        scanline(rects);
+      }
 
-      <div>
-        <img class="logo" src="img\Digital art\logo\cascaida.logo.png" alt="" />
-      </div>
-    </div>
+      function fillRectangles() {
+        let w = width;
+        let h = 5; // Initialize height variable for rectangles
 
-    <h2 class="hd2" id="section-people">People</h2>
-    <div class="grid-container">
-      <div>
-        <img
-          class="poster"
-          src="img\Digital art\people\reble.people.png"
-          alt=""
-        />
-      </div>
+        while (y < height) {
+          let a = random(3, 6); // Reduced alpha value for more transparency
 
-      <div>
-        <img
-          class="poster"
-          src="img\Digital art\people\Grave.people.png"
-          alt=""
-        />
-      </div>
-    </div>
+          // Create a rectangle object with properties
+          let rectObj = {
+            x: 0,
+            y: y,
+            w: w,
+            h: h,
+            color: color(random(100, 200)), // Lighter grayscale
+            alpha: a,
+          };
 
-    <h2 class="hd2" id="section-flag">Flags</h2>
-    <div class="grid-container">
-      <div>
-        <img
-          class="flag"
-          src="img\Digital art\Alt history\Cascadia.alt.png"
-          alt=""
-        />
-      </div>
+          // Push the rectangle object into the rects array
+          rects.push(rectObj);
+          rects2.push(rectObj);
 
-      <div>
-        <img
-          class="flag"
-          src="img\Digital art\Alt history\cal.alt.jpg"
-          alt=""
-        />
-      </div>
+          y += 1;
+        }
+      }
 
-      <div>
-        <img
-          class="flag"
-          src="img\Digital art\Alt history\america.alt.png"
-          alt=""
-        />
-      </div>
+      function moveRectangles() {
+        let w = width;
+        //h = int(random(5, mh));
 
-      <div>
-        <img
-          class="flag"
-          src="img\Digital art\Alt history\usa.alt.png"
-          alt=""
-        />
-      </div>
+        // Loop through each rectangle in the array
+        for (let i = 0; i < rects.length; i++) {
+          let fuzz = rects[i];
+          let fuzz2 = rects2[i];
 
-      <div>
-        <img class="flag" src="img\Digital art\flag\rose.flag.jpg" alt="" />
-      </div>
+          // Apply color and alpha, then draw the rectangle
+          fill(
+            fuzz.color.levels[0],
+            fuzz.color.levels[1],
+            fuzz.color.levels[2],
+            fuzz.alpha
+          );
+          noStroke();
+          rect(fuzz.x, i, fuzz.w, fuzz.h); // Draw the rectangle at the updated position
 
-      <div>
-        <img class="flag" src="img\Digital art\flag\realRose.flag.jpg" alt="" />
-      </div>
-    </div>
+          fill(
+            fuzz2.color.levels[0],
+            fuzz2.color.levels[1],
+            fuzz2.color.levels[2],
+            fuzz2.alpha
+          );
+          noStroke();
+          rect(fuzz2.x, i, fuzz2.w, fuzz2.h); // Draw the rectangle at the updated position
+        }
+      }
 
-    <h2 class="hd2" id="section-mix">Mix</h2>
-    <div class="grid-container">
-      <div>
-        <img class="logo" src="img\Digital art\ukraine.mix.png" alt="" />
-      </div>
+      function scanline() {
+        if (speed <= 5.5) {
+          ySpeed = random(0, 1.9);
+        } else {
+          ySpeed = random(-1.9, 0);
+        }
 
-      <div>
-        <img class="logo" src="img\Digital art\album art\Cult.mix.jpg" alt="" />
-      </div>
+        if (ySpeed <= 0) {
+          rects.push(rects.shift());
+          rects2.unshift(rects2.pop());
+        } else {
+          rects.unshift(rects.pop());
+          rects2.push(rects2.shift());
+        }
+      }
 
-      <div>
-        <img
-          class="logo"
-          src="img\Digital art\album art\space.mix.jpg"
-          alt=""
-        />
-      </div>
-    </div>
+      function windowResized() {
+        resizeCanvas(windowWidth, windowHeight);
+      }
+    </script>
   </body>
 </html>
